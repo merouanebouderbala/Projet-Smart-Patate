@@ -16,11 +16,10 @@
    
       
      /* >=================================================================< 
-        Only the very first Byte may be a zero, this way allows the computer 
-        to know that if a Byte recieved is a zero it must be the start byte.
-        If data bytes actually have a value of zero, They are given the value 
-        one and the bit in the zeroByte that represents that Byte is made 
-        high.  
+       seulement le premier byte peut-etre un zero,cette façon de faire permet 
+       au pc de savoir si le byte reçu est un zero et donc c'est forcément le premier byte.
+       si les data bytes ont une valeur de  zero, ils donnent la valeur un
+        et le bit dans ZeroByte  qui represente ce dernier byte est mis en haut
         >=================================================================< */   
         
        zeroByte = 128;                                   // 10000000
@@ -32,7 +31,7 @@
        
 
      /* >=================================================================< 
-        Calculate the remainder of: sum of all the Bytes divided by 255 
+      calculer le restant de : sommes de tout les bytes divisés par  255 
         >=================================================================< */
         
        Checksum = (Command + yMSB + yLSB + xMSB + xLSB + zeroByte)%255;
@@ -56,12 +55,12 @@
        
  void PlottArray(unsigned int Cmd,float Array1[],float Array2[]){
    
-      SendData(Cmd+1, 1,1);                        // Tell PC an array is about to be sent                      
+      SendData(Cmd+1, 1,1);                        //dire au pc qu'un array sera envoyer                     
       delay(1);
       for(int x=0;  x < sizeOfArray;  x++){     // Send the arrays 
         SendData(Cmd, round(Array1[x]),round(Array2[x]));
         //delay(1);
       }
       
-      SendData(Cmd+2, 1,1);                        // Confirm arrrays have been sent
+      SendData(Cmd+2, 1,1);                        // confirmer que le array a était envoyer 
     }

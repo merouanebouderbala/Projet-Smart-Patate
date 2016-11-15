@@ -82,7 +82,7 @@ void loop()
   delay(1000);
 
 
-  //PlottArray(1,freq,results); 
+  PlottArray(1,freq,results); 
  //nous devions changer la commande plottarray pour qu'elle puisse envoyer des données qui permettent le dessin du graphe 
 
   TOG(PORTB,0);            //-Toggle pin 8 after each sweep (good for scope)

@@ -75,7 +75,7 @@ void draw() {
         fill(255, 255, 255);
       }
 
-   //calucalte individual dist
+   //calculs des distances individuels.
       gestureDist[i] = dist(Time3[MyArduinoGraph.maxI], Voltage3[MyArduinoGraph.maxI], gesturePoints[i][0], gesturePoints[i][1]);
       totalDist = totalDist + gestureDist[i];
       if(gestureDist[i] < currentMaxValue || i == 0)
